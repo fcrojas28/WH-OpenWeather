@@ -10,7 +10,7 @@ import org.springframework.core.io.ClassPathResource;
 
 
 /**
- * 
+ *
  * @author frojas
  *
  */
@@ -30,5 +30,5 @@ public class EhCacheConfig {
 		bean.setShared(true);
 		return bean;
 	}
-	
+
 }

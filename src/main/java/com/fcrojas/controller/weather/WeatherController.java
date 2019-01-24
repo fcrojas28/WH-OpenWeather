@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.fcrojas.utility.weather.OpenWeatherClient;
 
 /**
- * 
+ *
  * @author frojas
  *
  */
@@ -30,12 +30,12 @@ public class WeatherController {
 
 	@Autowired
 	private OpenWeatherClient openWeatherClient;
-	
+
 	/**
 	 * This method return the current wind condition from the giving zip code
 	 * @param zipCode
 	 * @return A String with the wind speed and direction for the giving zip code
-	 * @throws IOException 
+	 * @throws IOException
 	 */
 	@ResponseStatus(value = HttpStatus.OK)
 	@RequestMapping(value="/wind/geo", method=RequestMethod.GET, produces=MediaType.APPLICATION_JSON_VALUE)
@@ -47,20 +47,20 @@ public class WeatherController {
 		if (resultJson.getInt("cod") != 200) {
 			return resultJson.toString();
 		}
-		
+
 		JSONObject windData = resultJson.getJSONObject("wind");
 		JSONObject windJson = new JSONObject();
-		
+
 		if (windData.has("speed")) {
 			windJson.put("speed", windData.getInt("speed"));
 		}
 		if (windData.has("deg")) {
 			windJson.put("direction", windData.getInt("deg") );
 		}
-		
+
 		return windJson.toString();
 	}
-	
+
 	/**
 	 * This method return the current wind condition from the giving zip code
 	 * @param zipCode
@@ -76,17 +76,17 @@ public class WeatherController {
 			if (resultJson.getInt("cod") != 200) {
 				return resultJson.toString();
 			}
-			
+
 			JSONObject windData = resultJson.getJSONObject("wind");
 			JSONObject windJson = new JSONObject();
-			
+
 			if (windData.has("speed")) {
 				windJson.put("speed", windData.getInt("speed"));
 			}
 			if (windData.has("deg")) {
 				windJson.put("direction", windData.getInt("deg") );
 			}
-			
+
 			return windJson.toString();
 		} else {
 			JSONObject error = new JSONObject();
@@ -95,7 +95,7 @@ public class WeatherController {
 			return error.toString();
 		}
 	}
-	
+
 	/**
 	 * This method clears all the entries from 'windCache' cache
 	 * @return
@@ -107,7 +107,7 @@ public class WeatherController {
 		System.out.println("cache cleared");
 		return "cache cleared";
 	}
-	
+
 	/**
 	 * This function checks for a good zip code.
 	 * A good zip code is String with 5 digits. Example 12345
