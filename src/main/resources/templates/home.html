@@ -1,0 +1,51 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <title>Weather Services</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+        <script type="text/javascript" th:src="@{/js/main.js}"></script>
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+</head>
+<body>
+
+
+<h2>Frankil Rojas - Code Challenge</h2>
+
+
+
+<br/>
+<div class="form-group">
+<input type="text"  id="zipcode" placeholder="Zip Code" name="zipcode">
+<button type="submit" class="btn btn-primary" id=checkZipCode>Submit</button>
+</div>
+<div id="zipcode-output" style="color:red;"></div>
+    
+<br/>
+<br/>
+<p class="lead">
+If you dont know you current zip code, that's ok. Just click in the button below to use your current location to get the weather information.<br/>
+Please allow the browser to get your current location, some browser may not support Geolocation. <br/>
+<button type="submit" class="btn btn-primary" id=checkGeolocation>Use Geolocation</button><br/>
+<div id="geolocation-output" style="color:red;"></div>
+</p>
+
+
+<br/>
+<br/>
+<p class="lead">
+To get the wind information using the REST client or curl please access via the following URL: <strong>http://localhost:8080/api/v1/wind/{zipCode}</strong>  </br>
+This is a GET call
+</p>
+
+<p class="lead">
+To get the wind information using the REST client or curl please access via the following URL: <strong>http://localhost:8080/api/v1/cache/evict</strong>  </br>
+This is a POST call
+</p>
+    
+</body>
+</html>
