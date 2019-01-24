@@ -14,38 +14,43 @@
 <body>
 
 
-<h2>Frankil Rojas - Code Challenge</h2>
-
-
-
-<br/>
-<div class="form-group">
-<input type="text"  id="zipcode" placeholder="Zip Code" name="zipcode">
-<button type="submit" class="btn btn-primary" id=checkZipCode>Submit</button>
+<div class="container">
+	<h2>Frankil Rojas - Code Challenge</h2>
+	
+	<br/>
+	<div class="form-group">
+	<input type="text"  id="zipcode" placeholder="Zip Code" name="zipcode">
+	<button type="submit" class="btn btn-primary" id=checkZipCode>Submit</button>
+	</div>
+	<div id="zipcode-output" style="color:red;"></div>
+	    
+	<br/>
+	<p class="lead">
+	If you dont know you current zip code, that's ok. Just click in the button below to use your current location to get the weather information.
+	Please allow the browser to get your current location, some browser may not support Geolocation. <br/>
+	<button type="submit" class="btn btn-primary" id=checkGeolocation>Use Geolocation</button><br/>
+	<div id="geolocation-output" style="color:red;"></div>
+	</p>
+	
+	
+	<br/>
+	<br/>
+	<p class="lead">
+	To get the wind information by zip code,  please use a REST client or curl with the following URL: <strong>http://localhost:8080/api/v1/wind/{zipCode}</strong>  </br>
+	This is a GET call
+	</p>
+	
+	
+	<p class="lead">
+	To get the wind information by geo coordinates,  please use a REST client or curl with the following URL: <strong>http://localhost:8080/api/v1/wind/geo?latitude=36.03&longitude=-115.30</strong>  </br>
+	This is a GET call
+	</p>
+	
+	<p class="lead">
+	To clear the cache, please use a REST client or curl with following URL: <strong>http://localhost:8080/api/v1/cache/evict</strong>  </br>
+	This is a POST call
+	</p>
 </div>
-<div id="zipcode-output" style="color:red;"></div>
-    
-<br/>
-<br/>
-<p class="lead">
-If you dont know you current zip code, that's ok. Just click in the button below to use your current location to get the weather information.<br/>
-Please allow the browser to get your current location, some browser may not support Geolocation. <br/>
-<button type="submit" class="btn btn-primary" id=checkGeolocation>Use Geolocation</button><br/>
-<div id="geolocation-output" style="color:red;"></div>
-</p>
-
-
-<br/>
-<br/>
-<p class="lead">
-To get the wind information using the REST client or curl please access via the following URL: <strong>http://localhost:8080/api/v1/wind/{zipCode}</strong>  </br>
-This is a GET call
-</p>
-
-<p class="lead">
-To get the wind information using the REST client or curl please access via the following URL: <strong>http://localhost:8080/api/v1/cache/evict</strong>  </br>
-This is a POST call
-</p>
     
 </body>
 </html>

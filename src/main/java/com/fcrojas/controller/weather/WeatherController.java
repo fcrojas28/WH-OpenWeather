@@ -47,9 +47,17 @@ public class WeatherController {
 		if (resultJson.getInt("cod") != 200) {
 			return resultJson.toString();
 		}
+		
+		JSONObject windData = resultJson.getJSONObject("wind");
 		JSONObject windJson = new JSONObject();
-		windJson.put("speed", resultJson.getJSONObject("wind").getInt("speed"));
-		windJson.put("direction", resultJson.getJSONObject("wind").getInt("deg"));
+		
+		if (windData.has("speed")) {
+			windJson.put("speed", windData.getInt("speed"));
+		}
+		if (windData.has("deg")) {
+			windJson.put("direction", windData.getInt("deg") );
+		}
+		
 		return windJson.toString();
 	}
 	
@@ -68,9 +76,17 @@ public class WeatherController {
 			if (resultJson.getInt("cod") != 200) {
 				return resultJson.toString();
 			}
+			
+			JSONObject windData = resultJson.getJSONObject("wind");
 			JSONObject windJson = new JSONObject();
-			windJson.put("speed", resultJson.getJSONObject("wind").getInt("speed"));
-			windJson.put("direction", resultJson.getJSONObject("wind").getInt("deg"));
+			
+			if (windData.has("speed")) {
+				windJson.put("speed", windData.getInt("speed"));
+			}
+			if (windData.has("deg")) {
+				windJson.put("direction", windData.getInt("deg") );
+			}
+			
 			return windJson.toString();
 		} else {
 			JSONObject error = new JSONObject();
